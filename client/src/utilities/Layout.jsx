@@ -1,12 +1,14 @@
 // Import components
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 
 export default function Layout({ children }) {
-    return (
-      <>
-        <Navbar />
-        <main>{children}</main>
-        {/* <Footer /> */}
-      </>
-    )
-  }
+  return (
+    <>
+      <Navbar />
+      <main className='container mx-auto'>
+        {children}
+      </main>
+      {/* <Footer /> */}
+    </>
+  )
+}

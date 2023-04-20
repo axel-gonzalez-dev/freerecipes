@@ -6,6 +6,9 @@ import { useState, useEffect } from 'react';
 import Meal from "../../interfaces/Meal";
 import Category from '@/interfaces/Category';
 
+// Import components
+import Card from '@/components/Card';
+
 interface CategoryNameProps {
     category: string;
 }
@@ -40,13 +43,9 @@ const CategoryName = () => {
 
     return (
         <>
-            <p>{category}</p>
             <section className='grid grid-cols-auto gap-4'>
                 {meals && meals.map((meal, index) => (
-                    <div key={index} className='border border-gray-950 p-4'>
-                        <img src={meal?.strMealThumb} alt="Meal image" className='w-full max-w-[200px]' />
-                        <h2>{meal?.strMeal}</h2>
-                    </div>
+                    <Card key={index} imgSrc={meal?.strMealThumb} title={meal?.strMeal} description={undefined} />
                 ))
                 }
             </section>
@@ -54,42 +53,37 @@ const CategoryName = () => {
     )
 }
 
-/*export async function GetStaticPaths() {
-    try {
+export async function getStaticPaths() {
+    // Fetch all categories from the API
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+    const data = await response.json();
+    const categories = data.categories;
 
-        const { categories } = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-            .then(response => response.json());
+    // Generate the paths for each category
+    const paths = categories.map((category: Category) => ({
+        params: { category: category.strCategory },
+    }));
 
-        // Generate the paths for each category
-        const paths = categories.map((category:Category) => ({
-            params: { category: category.strCategory },
-        }));
+    return {
+        paths,
+        fallback: false
+    };
+}
 
-        console.log(paths);
-        return {
-            paths,
-            fallfack: false
-        }
-
-    } catch (error) {
-        console.error(error);
-    }
-}*/
-
-/*export async function getStaticProps({ params }: { params: CategoryNameProps}) {
+export async function getStaticProps({ params }: { params: CategoryNameProps }) {
     const { category } = params;
-  
+
     // Fetch meals by category
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     const data = await response.json();
     const meals = data.meals;
-  
+
     return {
-      props: {
-        category,
-        meals,
-      },
+        props: {
+            category,
+            meals,
+        },
     };
-  }*/
+}
 
 export default CategoryName;

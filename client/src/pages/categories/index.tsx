@@ -5,6 +5,9 @@ import Link from 'next/link';
 // Import interfaces
 import Category from "../../interfaces/Category";
 
+// Import components
+import Card from '@/components/Card';
+
 export default function Categories() {
 
     const [categories, setCategories] = useState<Category[]>();
@@ -35,11 +38,7 @@ export default function Categories() {
             <section className='grid grid-cols-auto gap-4'>
                 {categories ? categories.map((category, index) => (
                     <Link key={index} href={`/categories/${category.strCategory}`}>
-                        <div className='border border-gray-950 p-4'>
-                            <img src={category?.strCategoryThumb} alt="" className='w-full max-w-[200px]' />
-                            <h2>{category?.strCategory}</h2>
-                            {/* <p>{category?.strCategoryDescription}</p> */}
-                        </div>
+                        <Card imgSrc={category?.strCategoryThumb} title={category?.strCategory} description="" />
                     </Link>
                 ))
                     : <p>Loading...</p>
