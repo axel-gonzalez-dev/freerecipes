@@ -30,7 +30,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className='bg-white | w-full | flex flex-wrap items-center justify-between px-10 py-4 | fixed z-20 top-0 left-0'>
+            <nav className='bg-seasalt | w-full | flex flex-wrap items-center justify-between px-10 py-4 | fixed z-20 top-0 left-0'>
                 <Link href="/" className='self-center | text-2xl font-semibold hover:text-green-600'>Home</Link>
 
                 <button className="sm:hidden " type="button" onClick={toggleNavbar}>
