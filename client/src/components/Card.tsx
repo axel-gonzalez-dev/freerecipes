@@ -7,7 +7,7 @@ interface CardProps {
 export default function Card({ imgSrc, title, description }: CardProps) {
     return (
         <>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+            <div className="max-w-sm | rounded | overflow-hidden|  shadow-md hover:shadow-lg | hover:animate-pulse">
                 {imgSrc && <img src={imgSrc} alt="Meal image" className='w-full object-contain' />}
 
                 {title &&
