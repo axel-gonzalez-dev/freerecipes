@@ -34,13 +34,13 @@ export default function Navbar() {
                 <Link href="/" className='self-center | text-2xl font-semibold hover:text-tiffanyblue'>Home</Link>
 
                 <button className="sm:hidden " type="button" onClick={toggleNavbar}>
-                    <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                    <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
                 </button>
 
                 <div className="hidden | w-full sm:w-auto sm:block | mt-5 sm:mt-0" id="navbar-default">
                     <ul>
                         {navbarSections.map((section, index) => (
-                            <li><Link href={section?.path} className='font-medium | hover:text-tiffanyblue'>{section?.name}</Link></li>
+                            <li key={index}><Link href={section?.path} className='font-medium | hover:text-tiffanyblue'>{section?.name}</Link></li>
                         ))}
                     </ul>
                 </div>
