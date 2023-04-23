@@ -25,7 +25,6 @@ export default function Recipe() {
             const { meals } = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
                 .then(response => response.json());
 
-            console.log(meals[0]);
             setRecipe(meals[0]);
 
         } catch (error) {
@@ -37,6 +36,10 @@ export default function Recipe() {
     return (
         <>
             <section>
+
+                <div className='mt-10 mb-10'>
+                    <button className='px-4 py-2 | bg-uranianblue | text-white | rounded-lg | hover:bg-tiffanyblue' onClick={() => router.back()}>Back</button>
+                </div>
 
                 <div className='md:flex md:justify-around md:items-center | text-center'>
                     <h1 className='text-xl font-semibold'>{recipe?.strMeal}</h1>
