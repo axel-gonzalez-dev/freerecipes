@@ -13,9 +13,7 @@ export default function Categories() {
     const [categories, setCategories] = useState<Category[]>();
 
     useEffect(() => {
-
         getCategories();
-
     }, []);
 
     const getCategories = async () => {

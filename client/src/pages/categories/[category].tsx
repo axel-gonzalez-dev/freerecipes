@@ -1,6 +1,7 @@
 // Import utilities
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 // Import interfaces
 import Meal from "../../interfaces/Meal";
@@ -45,7 +46,9 @@ const CategoryName = () => {
         <>
             <section className='grid grid-cols-auto gap-4'>
                 {meals && meals.map((meal, index) => (
-                    <Card key={index} imgSrc={meal?.strMealThumb} title={meal?.strMeal} description={undefined} />
+                    <Link href={`/recipe/${meal?.idMeal}`} key={index}>
+                        <Card key={index} imgSrc={meal?.strMealThumb} title={meal?.strMeal} description={undefined} />
+                    </Link>
                 ))
                 }
             </section>
