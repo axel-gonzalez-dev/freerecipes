@@ -33,8 +33,6 @@ const CategoryName = () => {
             const { meals } = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
                 .then(response => response.json());
 
-            console.log(meals);
-
             setMeals(meals);
 
         } catch (error) {

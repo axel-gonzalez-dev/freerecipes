@@ -6,7 +6,6 @@ import Link from 'next/link';
 export default function Recipe() {
 
     useEffect(() => {
-        console.log('Hello');
     }, []);
 
     return (

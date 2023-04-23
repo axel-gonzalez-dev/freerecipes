@@ -22,8 +22,6 @@ export default function Categories() {
             const { categories } = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
                 .then(response => response.json());
 
-            console.log(categories);
-
             setCategories(categories);
 
         } catch (error) {
